@@ -6,6 +6,11 @@ TagManager:
   tags:
   - safeSpot
   - lava
+  - player
+  - startStage
+  - rollingBall
+  - rollingBallPlayField
+  - chasingBallPlayField
   layers:
   - Default
   - TransparentFX
