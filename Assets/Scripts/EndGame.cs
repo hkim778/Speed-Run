@@ -18,11 +18,12 @@ public class EndGame : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "lava" || collision.gameObject.tag=="rollingBall")
+        if (collision.gameObject.tag == "lava" || collision.gameObject.tag=="rollingBall"||collision.gameObject.tag == "movingBall")
         {
             //for testing, it will be commented out and just restart
             //SceneManager.LoadScene("End Screen");
-            SceneManager.LoadScene("Main Game");
+            Debug.Log(SceneManager.GetActiveScene().ToString());
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
             //
         }

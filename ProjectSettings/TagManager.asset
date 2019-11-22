@@ -11,6 +11,7 @@ TagManager:
   - rollingBall
   - rollingBallPlayField
   - chasingBallPlayField
+  - movingBall
   layers:
   - Default
   - TransparentFX
