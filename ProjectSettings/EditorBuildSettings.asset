@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main Start.unity
+    guid: 8f124e694f7da4c14825f9ea2e0c90cc
+  - enabled: 1
+    path: Assets/Scenes/Bonus.unity
+    guid: c531d69a3b71a4940974938746557c91
+  - enabled: 1
     path: Assets/Scenes/Floor is lava.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
@@ -14,4 +20,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rolling Ball.unity
     guid: f98623b0c08eb473bb8ff243ad35e91a
+  - enabled: 1
+    path: Assets/Scenes/Chasing Ball.unity
+    guid: 9e8cd3625d72048e9bc7b7ab3cf8675c
+  - enabled: 1
+    path: Assets/Scenes/Falling Walls.unity
+    guid: 233094ec5aecf42a3a2306254a78664a
+  - enabled: 1
+    path: Assets/Scenes/Leader Board.unity
+    guid: e05e5e62e2d2546ee96401529daeae2d
+  - enabled: 1
+    path: Assets/Scenes/End Screen.unity
+    guid: 6a64ed62ad7224638829ffbd07dec6a3
   m_configObjects: {}
