@@ -49,6 +49,10 @@ public class CameraControl : MonoBehaviour
         {
             offset = new Vector3(0, 10f, -4f);
         }
+        else if (SceneManager.GetActiveScene().name == "Falling Walls")
+        {
+            offset = new Vector3(10f, 3f, 0f);
+        }
 
 
 

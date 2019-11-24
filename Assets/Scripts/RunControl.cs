@@ -25,6 +25,11 @@ public class RunControl : MonoBehaviour
     public string[] scenes;
     public string[] clearTime;
 
+    public string finalTime;
+
+    public float tempM;
+    public float tempS;
+
 
     // Start is called before the first frame update
     void Start()

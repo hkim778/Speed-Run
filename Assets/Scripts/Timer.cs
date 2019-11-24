@@ -6,6 +6,7 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     public TMP_Text timerUI;
+    GameObject temp;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,11 +16,12 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindGameObjectsWithTag("gameControl") != null)
+        if (GameObject.FindGameObjectsWithTag("gameControl") == null)
         {
+
             GameObject[] controlList = GameObject.FindGameObjectsWithTag("gameControl");
 
-            GameObject temp = controlList[controlList.Length - 1];
+            temp = controlList[controlList.Length - 1];
 
             //controls the time and display
             RunControl runControl = temp.GetComponent<RunControl>();
