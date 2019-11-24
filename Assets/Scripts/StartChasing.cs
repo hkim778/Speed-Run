@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndStage : MonoBehaviour
+public class StartChasing : MonoBehaviour
 {
-    private GameObject stageName;
-    private StartStage startStage;
-
+    public bool chasing;
     // Start is called before the first frame update
     void Start()
     {
-
+        chasing = false;
     }
 
     // Update is called once per frame
@@ -18,12 +16,11 @@ public class EndStage : MonoBehaviour
     {
         
     }
-
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "chasingBall")
+        if(other.gameObject.tag == "player")
         {
-            Destroy(other.gameObject);
+            chasing = true;
         }
     }
 }
