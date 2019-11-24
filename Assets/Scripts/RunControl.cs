@@ -23,7 +23,7 @@ public class RunControl : MonoBehaviour
     private string scene5;
 
     public string[] scenes;
-
+    public string[] clearTime;
 
 
     // Start is called before the first frame update
@@ -39,6 +39,8 @@ public class RunControl : MonoBehaviour
 
 
         scenes = new string[] { scene1, scene2,scene3,scene4,scene5 };
+        clearTime = new string[5];
+
         finishRun = false;
 
         //randomize
