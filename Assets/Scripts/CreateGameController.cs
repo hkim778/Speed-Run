@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine.SceneManagement;
+
 public class CreateGameController : MonoBehaviour
 {
     GameObject GameControl;
 
-    public Canvas PauseMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,18 @@ public class CreateGameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (SceneManager.GetActiveScene().name == "End Screen")
+        {
+            if (GameObject.FindGameObjectsWithTag("pauseMenu").Length > 0)
+            {
+                GameObject[] list = GameObject.FindGameObjectsWithTag("pauseMenu");
+                for (int i = 0; i < list.Length; i++)
+                {
+                    list[i].gameObject.SetActive(false);
+                }
+            }
+        }
+
     }
 
     private void Awake()
@@ -32,12 +45,6 @@ public class CreateGameController : MonoBehaviour
         }
 
         GameControl.AddComponent<RunControl>();
-
-        Instantiate(PauseMenu);
-
-
-        PauseMenu.transform.SetParent(GameControl.transform);
-
 
         DontDestroyOnLoad(GameControl);
     }

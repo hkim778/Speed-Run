@@ -28,28 +28,33 @@ public class ForceField : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F)&& GameObject.FindGameObjectWithTag("luckyKey")!=null)
         {
             //with the key obtained and the key pressing down,
-            if(other.gameObject.tag == "movingBall")
+            //key is one use
+            if (other.gameObject.tag == "movingBall")
             {
                 other.gameObject.GetComponent<MovingBall>().movement = false;
+                Destroy(GameObject.FindGameObjectWithTag("luckyKey"));
             }
 
             if(other.gameObject.tag == "rollingBall")
             {
                 other.gameObject.GetComponent<Roll>().movement = false;
+                Destroy(GameObject.FindGameObjectWithTag("luckyKey"));
             }
 
             if (other.gameObject.tag == "chasingBall")
             {
                 other.gameObject.GetComponent<Chase>().movement = false;
+                Destroy(GameObject.FindGameObjectWithTag("luckyKey"));
             }
 
             if(other.gameObject.tag == "fallingWall")
             {
                 other.gameObject.GetComponent<ReturnToStart>().movement = false;
+                Destroy(GameObject.FindGameObjectWithTag("luckyKey"));
             }
 
-            //key is one use
-            Destroy(GameObject.FindGameObjectWithTag("luckyKey"));
+
+
 
         }
 

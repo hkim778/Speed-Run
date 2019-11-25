@@ -39,6 +39,7 @@ public class ClickToDestroy : MonoBehaviour
             if(runControl != null)
             {
                 SceneManager.LoadScene(runControl.scenes[0]);
+                //SceneManager.LoadScene("Chasing Ball");
             }
 
 

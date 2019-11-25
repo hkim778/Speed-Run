@@ -2,13 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 using TMPro;
-
 using UnityEditor;
-
-
-
 
 public class GameStart : MonoBehaviour
 {
@@ -27,12 +22,6 @@ public class GameStart : MonoBehaviour
             runControl = controlList[controlList.Length - 1].GetComponent<RunControl>();
 
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void StartGame()
@@ -60,7 +49,7 @@ public class GameStart : MonoBehaviour
 
         else
         {
-            EditorUtility.DisplayDialog("Invalid", "Pleae type in 3 characters letter", "Ok");
+            EditorUtility.DisplayDialog("Invalid", "Pleae type in 3 characters name", "Ok");
         }
 
 

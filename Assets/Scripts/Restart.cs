@@ -26,6 +26,7 @@ public class Restart : MonoBehaviour
 
     public void ToStartOfTheGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(runControl.scenes[0]);
     }
 }

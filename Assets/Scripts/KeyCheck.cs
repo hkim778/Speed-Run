@@ -9,8 +9,8 @@ public class KeyCheck : MonoBehaviour
     public TMP_Text keyCheckUI;
     GameObject temp;
 
-    int luckyKey;
-    int railKey;
+    public int luckyKey;
+    public int railKey;
     // Start is called before the first frame update
     void Start()
     {

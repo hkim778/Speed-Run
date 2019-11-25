@@ -47,7 +47,7 @@ public class KeyBehaviour : MonoBehaviour
             empty.transform.SetParent(list[list.Length - 1].transform);
 
             SceneManager.LoadScene(runControl.scenes[0]);
-            //SceneManager.LoadScene("Falling Walls");
+            //SceneManager.LoadScene("Moving Ball");
         }
     }
 
