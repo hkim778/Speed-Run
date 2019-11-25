@@ -19,7 +19,7 @@ public class EndStage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GameObject.FindGameObjectsWithTag("gameControl") == null)
+        if (GameObject.FindGameObjectsWithTag("gameControl").Length > 0)
         {
             controlList = GameObject.FindGameObjectsWithTag("gameControl");
 
@@ -58,6 +58,7 @@ public class EndStage : MonoBehaviour
                         runControl.clearTime[i] = string.Format("{0:00} : {1:00}", runControl.minutes, runControl.seconds);
                         runControl.tempM = runControl.minutes;
                         runControl.tempS = runControl.seconds;
+                        SceneManager.LoadScene(runControl.scenes[i + 1]);
                     }
                     else if (i > 0)
                     {
@@ -84,8 +85,15 @@ public class EndStage : MonoBehaviour
                             runControl.finalTime = string.Format("{0:00} : {1:00}", runControl.minutes, runControl.seconds);
                             SceneManager.LoadScene("Leader Board");
                         }
+                        else
+                        {
+                            SceneManager.LoadScene(runControl.scenes[i + 1]);
+                        }
+
+
+
                     }
-                        SceneManager.LoadScene(runControl.scenes[i + 1]);
+                   
                 }
 
 

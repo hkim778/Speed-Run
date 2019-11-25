@@ -58,7 +58,8 @@ public class RunControl : MonoBehaviour
     void Update()
     {
 
-        if (SceneManager.GetActiveScene().name == "Main Start"|| SceneManager.GetActiveScene().name == "Bonus" || SceneManager.GetActiveScene().name == "End Screen")
+        if (SceneManager.GetActiveScene().name == "Main Start"|| SceneManager.GetActiveScene().name == "Bonus" || SceneManager.GetActiveScene().name == "End Screen"
+        || SceneManager.GetActiveScene().name == "Leader Board")
         {
             //does nothing for the timer
         }

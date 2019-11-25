@@ -20,7 +20,7 @@ public class GameStart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GameObject.FindGameObjectsWithTag("gameControl") != null)
+        if (GameObject.FindGameObjectsWithTag("gameControl").Length>0 )
         {
             controlList = GameObject.FindGameObjectsWithTag("gameControl");
 
@@ -47,9 +47,14 @@ public class GameStart : MonoBehaviour
             if (SceneManager.GetActiveScene().name == "Main Start")
             {
                 //go to the next scene
+                SceneManager.LoadScene("Bonus");
+
+                //SceneManager.LoadScene("Leader Board");
+            }
+            else
+            {
                 SceneManager.LoadScene(runControl.scenes[0]);
             }
-
 
         }
 

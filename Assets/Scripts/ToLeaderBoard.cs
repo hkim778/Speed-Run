@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ToLeaderBoard : MonoBehaviour
 {
+    private GameObject[] controlList;
+
+    private RunControl runControl;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,7 @@ public class ToLeaderBoard : MonoBehaviour
 
     public void LoadLeaderBoard()
     {
+
         SceneManager.LoadScene("Leader Board");
     }
 }

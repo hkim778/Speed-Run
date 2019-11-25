@@ -16,7 +16,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindGameObjectsWithTag("gameControl") == null)
+        if (GameObject.FindGameObjectsWithTag("gameControl").Length>0 )
         {
 
             GameObject[] controlList = GameObject.FindGameObjectsWithTag("gameControl");
