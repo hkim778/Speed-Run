@@ -40,8 +40,11 @@ public class EndStage : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+
+        //check parameter
         if (GameObject.FindGameObjectsWithTag("gameControl").Length > 0)
         {
+            //if it collids with the player
             if (other.gameObject.tag == "player")
             {
 
@@ -54,6 +57,7 @@ public class EndStage : MonoBehaviour
                     {
                         int keyGenerate = Random.Range(1, 5);
 
+                        // provide key to the user with a random chance
                         GameObject empty = new GameObject();
                         if (keyGenerate == 1)
                         {
@@ -106,13 +110,6 @@ public class EndStage : MonoBehaviour
                             runControl.tempS = runControl.seconds;
                             if (i == 4)
                             {
-                                for (int j = 0; j < controlList[controlList.Length-1].transform.childCount; j++)
-                                {
-                                    if (controlList[controlList.Length - 1].transform.GetChild(i).tag == "pauseMenu")
-                                    {
-                                        Destroy(controlList[controlList.Length - 1].transform.GetChild(i));
-                                    }
-                                }
                                 runControl.finalTime = string.Format("{0:00} : {1:00}", runControl.minutes, runControl.seconds);
                                 SceneManager.LoadScene("Leader Board");
                             }
