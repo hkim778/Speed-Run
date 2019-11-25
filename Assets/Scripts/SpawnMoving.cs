@@ -6,6 +6,9 @@ public class SpawnMoving : MonoBehaviour
 {
     public GameObject movingBall;
 
+    public GameObject disappearing;
+    public GameObject regularWall;
+
     float difference;
     // Start is called before the first frame update
     void Start()
@@ -14,6 +17,10 @@ public class SpawnMoving : MonoBehaviour
         for(int i = 0; i<7; i++)
         {
             Instantiate(movingBall, new Vector3(-2.1f, -0.926f, difference),Quaternion.identity);
+
+            Instantiate(disappearing, new Vector3(-2.742f, -1.22f, difference), Quaternion.identity);
+
+            Instantiate(disappearing, new Vector3(2.753f, -1.22f, difference), Quaternion.identity);
             difference -= 3;
 
         }

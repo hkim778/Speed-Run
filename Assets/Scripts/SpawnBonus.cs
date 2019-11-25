@@ -14,12 +14,18 @@ public class SpawnBonus : MonoBehaviour
     bool spawnKey;
 
 
+
+
     float randomX;
 
     public TMP_Text instruction;
+    public TMP_Text details;
 
     float summon;
     float destroyed;
+
+    public GameObject key1;
+    public GameObject key2;
 
 
     // Start is called before the first frame update
@@ -42,9 +48,28 @@ public class SpawnBonus : MonoBehaviour
 
     private void Update()
     {
+
         if (!spawnKey && spawned && GameObject.FindGameObjectsWithTag("bonusBall").Length == 0)
         {
-            Debug.Log("hi");
+            var rand = Random.Range(1, 3);
+            //var rand = 2;
+            GameObject temp;
+            if(rand == 1)
+            {
+                temp = key1;
+                details.text = "If you get Close to a moving object, Press F to stop its movement. One use";
+                instruction.text = "Lucky Key!";
+            }
+            else
+            {
+                temp = key2;
+                details.text = "Only avaialbe in moving balls. Press H to open the rail so the ball will disappear";
+                instruction.text = "Key To Open up Rail!";
+            }
+
+            instruction.text += " Click It";
+            Instantiate(temp, new Vector3(-0.4965789f, 2f, -2.9f), Quaternion.identity);
+
             spawnKey = true;
         }
     }

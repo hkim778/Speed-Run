@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timerUI = gameObject.GetComponent<TMP_Text>();
+        //timerUI = gameObject.GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame

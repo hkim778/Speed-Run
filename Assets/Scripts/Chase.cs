@@ -16,10 +16,13 @@ public class Chase : MonoBehaviour
 
     Rigidbody rigid;
 
+    public bool movement;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        movement = true;
         rigid = GetComponent<Rigidbody>();
 
         //When the spawners spawn the enemy ball, the gameobject assigned to it
@@ -41,7 +44,15 @@ public class Chase : MonoBehaviour
         }
         else
         {
-            rigid.velocity += (towards.position - transform.position).normalized * fspeed * Time.deltaTime;
+            if (movement)
+            {
+                rigid.velocity += (towards.position - transform.position).normalized * fspeed * Time.deltaTime;
+
+            }
+            else
+            {
+                rigid.velocity = Vector3.zero;
+            }
 
         }
 

@@ -31,7 +31,7 @@ public class EndStage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,69 +40,88 @@ public class EndStage : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
-
-        if(other.gameObject.tag  == "player")
+        if (GameObject.FindGameObjectsWithTag("gameControl").Length > 0)
         {
-
-            //load the next randomize
-            for (int i = 0; i < runControl.scenes.Length; i++)
+            if (other.gameObject.tag == "player")
             {
 
-
-                if (SceneManager.GetActiveScene().name == runControl.scenes[i])
+                //load the next randomize
+                for (int i = 0; i < runControl.scenes.Length; i++)
                 {
- 
 
-                    if (i == 0)
-                    {
-                        runControl.clearTime[i] = string.Format("{0:00} : {1:00}", runControl.minutes, runControl.seconds);
-                        runControl.tempM = runControl.minutes;
-                        runControl.tempS = runControl.seconds;
-                        SceneManager.LoadScene(runControl.scenes[i + 1]);
-                    }
-                    else if (i > 0)
-                    {
-                        stageTime = (runControl.minutes * 60 + runControl.seconds) - (runControl.tempM * 60 + runControl.tempS); 
 
-                        //bigger than one min
-                        if (stageTime >= 60)
+                    if (SceneManager.GetActiveScene().name == runControl.scenes[i])
+                    {
+                        int keyGenerate = Random.Range(1, 5);
+
+                        GameObject empty = new GameObject();
+                        if (keyGenerate == 1)
                         {
-                            m = stageTime / 60;
-                            s = stageTime % 60;
+                            //25percent chance
+                            empty.tag = "luckyKey";
+                            empty.name = "Lucky Key";
+
+                        }
+
+                        else if (keyGenerate == 2)
+                        {
+                            //25percent chance
+                            empty.tag = "openRailKey";
+                            empty.name = "Open Rail Key";
                         }
                         else
                         {
-                            s = stageTime % 60;
+                            Debug.Log("No Keys");
                         }
 
-                        //find the difference between each stage so they can measure the actual time it took
-                        runControl.clearTime[i] = string.Format("{0:00} : {1:00}", m, s);
-                        runControl.tempM = runControl.minutes;
-                        runControl.tempS = runControl.seconds;
-                        if (i == 4)
-                        {
+                        empty.transform.SetParent(controlList[controlList.Length - 1].transform);
 
-                            runControl.finalTime = string.Format("{0:00} : {1:00}", runControl.minutes, runControl.seconds);
-                            SceneManager.LoadScene("Leader Board");
-                        }
-                        else
+
+                        if (i == 0)
                         {
+                            runControl.clearTime[i] = string.Format("{0:00} : {1:00}", runControl.minutes, runControl.seconds);
+                            runControl.tempM = runControl.minutes;
+                            runControl.tempS = runControl.seconds;
                             SceneManager.LoadScene(runControl.scenes[i + 1]);
                         }
+                        else if (i > 0)
+                        {
+                            stageTime = (runControl.minutes * 60 + runControl.seconds) - (runControl.tempM * 60 + runControl.tempS);
 
+                            //bigger than one min
+                            if (stageTime >= 60)
+                            {
+                                m = stageTime / 60;
+                                s = stageTime % 60;
+                            }
+                            else
+                            {
+                                s = stageTime % 60;
+                            }
+                            //record each stage time 
 
+                            //find the difference between each stage so they can measure the actual time it took
+                            runControl.clearTime[i] = string.Format("{0:00} : {1:00}", m, s);
+                            runControl.tempM = runControl.minutes;
+                            runControl.tempS = runControl.seconds;
+                            if (i == 4)
+                            {
 
+                                runControl.finalTime = string.Format("{0:00} : {1:00}", runControl.minutes, runControl.seconds);
+                                SceneManager.LoadScene("Leader Board");
+                            }
+                            else
+                            {
+                                SceneManager.LoadScene(runControl.scenes[i + 1]);
+                            }
+                        }
                     }
-                   
                 }
-
-
 
             }
 
 
         }
-            //record each stage time 
 
     }
 }

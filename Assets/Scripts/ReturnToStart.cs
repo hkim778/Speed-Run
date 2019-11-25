@@ -13,16 +13,20 @@ public class ReturnToStart : MonoBehaviour
 
     private bool isMoving;
 
+    public bool movement;
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        movement = true;
         moveSeconds = Random.Range(1, 5);
         startPosition = transform.position;
         startRotation = transform.rotation;
 
+        rb = gameObject.GetComponent<Rigidbody>();
 
-       // StartCoroutine(Delay());
+       
     }
 
     void StartMoving()
@@ -33,10 +37,11 @@ public class ReturnToStart : MonoBehaviour
         secondPosition = transform.position;
         secondRotation = transform.rotation;
 
-        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+
         if(rb != null)
         {
             rb.velocity = Vector3.zero;
+
         }
     }
 
@@ -50,29 +55,43 @@ public class ReturnToStart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (isMoving)
+        if (movement)
         {
-            moveTimer += Time.deltaTime;
-            if (moveTimer > moveSeconds)
+            if (isMoving)
             {
-                StopMoving();
-            }
-            else
-            {
-                float ratio = moveTimer / moveSeconds;
-                transform.position = Vector3.Lerp(secondPosition, startPosition, ratio);
-                transform.rotation = Quaternion.Slerp(secondRotation, startRotation, ratio);
+                moveTimer += Time.deltaTime;
+                if (moveTimer > moveSeconds)
+                {
+                    StopMoving();
+                }
+                else
+                {
+                    float ratio = moveTimer / moveSeconds;
+                    transform.position = Vector3.Lerp(secondPosition, startPosition, ratio);
+                    transform.rotation = Quaternion.Slerp(secondRotation, startRotation, ratio);
+                }
             }
         }
+        else
+        {
+            rb.velocity = Vector3.zero;
+            rb.useGravity = false;
+
+        }
+
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "floor")
         {
+            if (movement)
+            {
+                StartMoving();
+            }
 
-            StartMoving();
+
         }
     }
 

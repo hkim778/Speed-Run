@@ -17,6 +17,10 @@ TagManager:
   - fallingWall
   - floor
   - bonusBall
+  - layer
+  - luckyKey
+  - openRailKey
+  - disappearingWall
   layers:
   - Default
   - TransparentFX
