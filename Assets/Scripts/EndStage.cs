@@ -106,7 +106,13 @@ public class EndStage : MonoBehaviour
                             runControl.tempS = runControl.seconds;
                             if (i == 4)
                             {
-
+                                for (int j = 0; j < controlList[controlList.Length-1].transform.childCount; j++)
+                                {
+                                    if (controlList[controlList.Length - 1].transform.GetChild(i).tag == "pauseMenu")
+                                    {
+                                        Destroy(controlList[controlList.Length - 1].transform.GetChild(i));
+                                    }
+                                }
                                 runControl.finalTime = string.Format("{0:00} : {1:00}", runControl.minutes, runControl.seconds);
                                 SceneManager.LoadScene("Leader Board");
                             }

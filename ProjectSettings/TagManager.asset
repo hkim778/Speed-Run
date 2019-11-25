@@ -21,6 +21,7 @@ TagManager:
   - luckyKey
   - openRailKey
   - disappearingWall
+  - pauseMenu
   layers:
   - Default
   - TransparentFX

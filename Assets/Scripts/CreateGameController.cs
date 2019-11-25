@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreateGameController : MonoBehaviour
 {
     GameObject GameControl;
+
+    public Canvas PauseMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,12 @@ public class CreateGameController : MonoBehaviour
         }
 
         GameControl.AddComponent<RunControl>();
+
+        Instantiate(PauseMenu);
+
+
+        PauseMenu.transform.SetParent(GameControl.transform);
+
 
         DontDestroyOnLoad(GameControl);
     }

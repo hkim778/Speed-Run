@@ -30,11 +30,15 @@ public class RunControl : MonoBehaviour
     public float tempM;
     public float tempS;
 
+    bool stopped;
+    bool restarted;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        stopped = false;
+        restarted = true;
 
         scene1 = System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(2));
         scene2 = System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(3));
@@ -57,11 +61,38 @@ public class RunControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        for(int i = 0; i < scenes.Length; i++)
+        {
+            if (SceneManager.GetActiveScene().name == scenes[i])
+            {
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    if (transform.childCount > 0 && transform.GetChild(0).tag == "pauseMenu")
+                    {
+                        transform.GetChild(0).gameObject.SetActive(true);
+                    }
+                    Time.timeScale = 0;
+                }
+
+                else if (Input.GetKeyUp(KeyCode.Escape))
+                {
+                    if (transform.childCount > 0 && transform.GetChild(0).tag == "pauseMenu")
+                    {
+                        transform.GetChild(0).gameObject.SetActive(false);
+                    }
+                    Time.timeScale = 1;
+                }
+
+            }
+        }
+
+
 
         if (SceneManager.GetActiveScene().name == "Main Start"|| SceneManager.GetActiveScene().name == "Bonus" || SceneManager.GetActiveScene().name == "End Screen"
         || SceneManager.GetActiveScene().name == "Leader Board")
         {
             //does nothing for the timer
+
         }
 
         else
