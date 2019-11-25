@@ -2774,10 +2774,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "1. Arrow keys or WASD to Control\n2. Space Bar to jump\n3. Run and dodge
-    :)\n4. Further instruction will be given\n\n\ta. Lucky Key - stops the movment
-    of the object near you - key f\n\tb. open Rail Key - opens up the rail for you
-    - key h"
+  m_text: '1. Arrow keys or WASD to Control
+
+    2. Space Bar to jump
+
+    3. Run and dodge :)
+
+    4. Further instruction will be given
+
+
+    a. Lucky Key - stops the movment of the object near you - key f
+
+    b. open Rail Key - opens up the rail for you - key h
+
+    c.Press ESC to Pause'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -2846,10 +2856,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1744228955}
-    characterCount: 230
+    characterCount: 249
     spriteCount: 0
-    spaceCount: 54
-    wordCount: 51
+    spaceCount: 56
+    wordCount: 56
     linkCount: 0
     lineCount: 9
     pageCount: 1
